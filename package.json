@@ -9,7 +9,7 @@
   },
   "keywords": [],
   "author": "Ricardo Valencia",
-  "license": "ISC",
+  "license": "MIT",
   "repository": {
     "type": "git",
     "url": "https://github.com/RickyV33/Voting-Server.git"
