@@ -4,7 +4,7 @@
   "description": "A web application that lets uers vote on various topics until a winenr has been decided.",
   "main": "index.js",
   "scripts": {
-    "test": "mocha --compilers js:babel-cor/register --require ./test/test_helper.js --recursive",
+    "test": "mocha --compilers js:babel-core/register --require ./test/test_helper.js --recursive",
     "test:watch": "npm run test -- --watch"
   },
   "keywords": [],
