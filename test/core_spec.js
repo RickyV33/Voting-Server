@@ -1,7 +1,7 @@
-import { Map } from 'immutable';
+import { List, Map } from 'immutable';
 import { expect } from 'chai';
 
-import { setEntries } from '..src/core';
+import { setEntries } from '../src/core';
 
 describe('application logic', () => {
   describe('setEntries function', () => {
@@ -10,7 +10,7 @@ describe('application logic', () => {
       const entries = ['Trainspotting', '28 Days Later'];
       const nextState = setEntries(state, entries);
       expect(nextState).to.equal(new Map({
-        entries: ['Trainspotting', '28 Days Later'],
+        entries: List.of('Trainspotting', '28 Days Later')
       }));
     });
   });
