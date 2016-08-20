@@ -33,5 +33,23 @@ describe('core module', () => {
   });
 
   describe('vote function', () => {
+    it('creates a tally for the voted entry', () => {
+      const state = new Map({
+        vote: Map({
+          pair: List.of('Trainspotting', '28 Days Later')
+        }),
+        entries: new List()
+      });
+      const nextState = vote(state, 'Trainspotting');
+      expect(nextState).to.equal(new Map({
+        vote: new Map({
+          pair: List.of('Trainspotting', '28 Days Later'),
+          tally: Map({
+            'Trainspotting': 1
+          })
+        }),
+        entries: new List()
+      }));
+    });
   });
 });
