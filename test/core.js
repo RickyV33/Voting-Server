@@ -5,7 +5,7 @@ import { expect } from 'chai';
 
 import { setEntries } from '../src/core';
 
-describe('application logic', () => {
+describe('core module', () => {
   describe('setEntries function', () => {
     it('adds the entries to the state', () => {
       const state = new Map();
@@ -29,6 +29,9 @@ describe('application logic', () => {
         }),
         entries: List.of('Sunshine')
       }));
-    })
+    });
+  });
+
+  describe('vote function', () => {
   });
 });
