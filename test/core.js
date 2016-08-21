@@ -3,7 +3,7 @@
 import { List, Map, fromJS } from 'immutable';
 import { expect } from 'chai';
 
-import { setEntries, next } from '../src/core';
+import { setEntries, next, vote } from '../src/core';
 
 describe('core module', () => {
   describe('setEntries function', () => {
@@ -61,7 +61,7 @@ describe('core module', () => {
       const nextState = vote(state, 'Trainspotting');
       expect(nextState).to.equal(fromJS({
         vote   : {
-          pair : [ 'Trainspotting', '28 Days later' ],
+          pair : [ 'Trainspotting', '28 Days Later' ],
           tally: { 'Trainspotting': 4, '28 Days Later': 2 }
         },
         entries: []
