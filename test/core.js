@@ -1,9 +1,9 @@
 'use strict';
 
-import { List, Map } from 'immutable';
+import { List, Map, fromJS } from 'immutable';
 import { expect } from 'chai';
 
-import { setEntries } from '../src/core';
+import { setEntries, next } from '../src/core';
 
 describe('core module', () => {
   describe('setEntries function', () => {
@@ -19,16 +19,15 @@ describe('core module', () => {
 
   describe('next function', () => {
     it('takes the next two entries under vote', () => {
-      const state = new Map({
-        entries: List.of('Trainspotting', '28 Days Later', 'Sunshine')
+      const state = fromJS({
+        entries: [ 'Trainspotting', '28 Days Later', 'Sunshine']
       });
       const nextState = next(state);
-      expect(nextState).to.equal(Map({
-        vote: Map({
-          pair: List.of('Trainspotting', '28Days Later')
-        }),
-        entries: List.of('Sunshine')
-      }));
+      expect(nextState).to.equal(fromJS({
+        vote: {
+          pair: [ 'Trainspotting', '28 Days Later' ]
+        },
+        entries: ['Sunshine' ]}));
     });
   });
 
@@ -64,16 +63,8 @@ describe('core module', () => {
         entries: new List()
       });
       const nextState = vote(state, 'Trainspotting');
-      expect(nextState.to.equal(new Map({
-        vote: new Map({
-          pair: List.of('Trainspotting', '28 Days Later'),
-          tally: new Map({
-            'Trainspotting': 4,
-            '28 Days Later': 2
-          })
-        }),
-        entries: new List()
-      })));
+      expect(nextState).to.equal(fromJS(`{ vote: { pair: 'Trainspotting', '28 Days later', tally: { Trainspotting': 4, 
+      '28 Days Later'}}, entries: []`));
     });
   });
 });
