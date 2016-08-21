@@ -27,44 +27,45 @@ describe('core module', () => {
         vote: {
           pair: [ 'Trainspotting', '28 Days Later' ]
         },
-        entries: ['Sunshine' ]}));
+        entries: ['Sunshine']
+      }));
     });
   });
 
   describe('vote function', () => {
     it('creates a tally for the voted entry', () => {
-      const state = new Map({
-        vote: new Map({
-          pair: List.of('Trainspotting', '28 Days Later')
-        }),
-        entries: new List()
+      const state = fromJS({
+        vote: {
+          pair: [ 'Trainspotting', '28 Days Later' ]
+        },
+        entries: []
       });
       const nextState = vote(state, 'Trainspotting');
-      expect(nextState).to.equal(new Map({
-        vote: new Map({
-          pair: List.of('Trainspotting', '28 Days Later'),
-          tally: new Map({
-            'Trainspotting': 1
-          })
-        }),
-        entries: new List()
-      }));
+      expect(nextState).to.equal(fromJS({
+        vote: {
+          pair: [ 'Trainspotting', '28 Days Later' ],
+          tally: { 'Trainspotting': 1 }
+        },
+        entries: []
+      }))
     });
 
     it ('adds to existing tally for the voted entry', () => {
-      const state = Map({
-        vote: new Map({
-          pair: List.of('Trainspotting', '28 Days Later'),
-          tally: new Map({
-            'Trainspotting': 3,
-            '28 Days Later': 2
-          })
-        }),
-        entries: new List()
+      const state = fromJS({
+        vote: {
+          pair: [ 'Trainspotting', '28 Days Later' ],
+          tally: { 'Trainspotting': 3, '28 Days Later': 2 }
+        },
+        entries: []
       });
       const nextState = vote(state, 'Trainspotting');
-      expect(nextState).to.equal(fromJS(`{ vote: { pair: 'Trainspotting', '28 Days later', tally: { Trainspotting': 4, 
-      '28 Days Later'}}, entries: []`));
+      expect(nextState).to.equal(fromJS({
+        vote   : {
+          pair : [ 'Trainspotting', '28 Days later' ],
+          tally: { 'Trainspotting': 4, '28 Days Later': 2 }
+        },
+        entries: []
+      }));
     });
   });
 });
