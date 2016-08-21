@@ -5,9 +5,9 @@ export function setEntries (state, entries) {
 }
 
 export function next (state) {
-  const entries = stage.get('entries');
+  const entries = state.get('entries');
   return state.merge({
-    vote: new Map({ pair: entires.take(2) }),
+    vote: new Map({ pair: entries.take(2) }),
     entries: entries.skip(2)
   });
 }
