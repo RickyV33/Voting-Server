@@ -30,6 +30,23 @@ describe('core module', () => {
         entries: ['Sunshine']
       }));
     });
+
+    it('puts winner of current vote back to entries', () => {
+      const state = fromJS({
+        vote: {
+          pair: [ 'Trainspotting', '28 Days Later' ],
+          tally: { 'Trainspotting': 4, '28 Days Later': 2 }
+        },
+        entries: [ '127 Hours', 'Millions', 'Trainspotting' ]
+      });
+      const nextState = next(state);
+      expect(nextState).to.equal(fromJS({
+        vote: {
+          pair: [ 'Sunshine', 'Millions' ]
+        },
+        entries: [ '127 Hours', 'Trainspotting' ]
+      }))
+    });
   });
 
   describe('vote function', () => {
