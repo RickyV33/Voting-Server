@@ -37,7 +37,7 @@ describe('core module', () => {
           pair: [ 'Trainspotting', '28 Days Later' ],
           tally: { 'Trainspotting': 4, '28 Days Later': 2 }
         },
-        entries: [ '127 Hours', 'Millions', 'Trainspotting' ]
+        entries: [ 'Sunshine', 'Millions', '127 Hours' ]
       });
       const nextState = next(state);
       expect(nextState).to.equal(fromJS({
