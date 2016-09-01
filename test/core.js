@@ -45,7 +45,24 @@ describe('core module', () => {
           pair: [ 'Sunshine', 'Millions' ]
         },
         entries: [ '127 Hours', 'Trainspotting' ]
-      }))
+      }));
+    });
+
+    it('puts both from tied vote back to entries', () => {
+      const state = fromJS({
+        vote: {
+          pair: [ 'Trainspotting', '28 Days Later' ],
+          tally: { 'Trainspotting': 3, '28 Days Later': 3 }
+        },
+        entries: [ 'Sunshine', 'Millions', '127 Hours' ]
+      });
+      const nextState = next(state);
+      expect(nextState).to.equal(fromJS({
+        vote: {
+          pair: [ 'Sunshine', 'Millions' ]
+        },
+        entries: [ '127 Hours', 'Trainspotting', '28 Days Later' ]
+      }));
     });
   });
 
