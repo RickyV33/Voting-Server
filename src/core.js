@@ -18,7 +18,7 @@ export function next (state) {
 }
 
 export function vote (state, entry) {
-  return state.updateIn([ 'vote', 'tally', entry ], 0, tally => tally + 1);
+  return state.updateIn(['vote', 'tally', entry], 0, tally => tally + 1);
 }
 
 function getWinners (vote) {
@@ -26,15 +26,15 @@ function getWinners (vote) {
     return [];
   }
   const [ a, b ] = vote.get('pair');
-  const aVotes = vote.getIn([ 'tally', a ], 0);
-  const bVotes = vote.getIn([ 'tally', b ], 0);
+  const aVotes = vote.getIn(['tally', a], 0);
+  const bVotes = vote.getIn(['tally', b], 0);
   if (aVotes > bVotes) {
-    return [ a ];
+    return [a];
   }
   else if (aVotes < bVotes) {
-    return [ b ];
+    return [b];
   }
   else {
-    return [ a, b ]
+    return [a, b]
   }
 }
