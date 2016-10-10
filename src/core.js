@@ -20,7 +20,7 @@ export function next (state) {
 }
 
 export function vote (state, entry) {
-  return state.updateIn(['vote', 'tally', entry], 0, tally => tally + 1);
+  return state.updateIn(['tally', entry], 0, tally => tally + 1);
 }
 
 function getWinners (vote) {
