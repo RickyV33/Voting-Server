@@ -1,6 +1,6 @@
 ## About
 
-On a quest to learn React and Redux, I am following along as I read through [this]((https://teropa.info/blog/2015/09/10/full-stack-redux-tutorial.html)) comprehensive tutorial on using these new technologies. The application itself provides a collection of things to vote on. The app will pick out items in the collection in pairs and have users vote on which is their favorite. The winner of each round proceeds to the next, and when there's just one item left, that's the winner.
+On a quest to learn React and Redux, I am reading through [this]((https://teropa.info/blog/2015/09/10/full-stack-redux-tutorial.html)) comprehensive tutorial on using these new technologies. The application itself provides a collection of things to vote on. The app will pick out items in the collection in pairs and have users vote on which is their favorite. The winner of each round proceeds to the next, and when there's just one item left, that's the winner.
 
 ## Development
 
